@@ -1,0 +1,4 @@
+name: NC
+version: '${project.version}'
+main: com.example.plugins.nc.NC
+api-version: '1.20'
