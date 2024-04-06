@@ -1,0 +1,233 @@
+#验证码(联系插件管理员购买获取)
+Code:
+  #主插件授权码
+  LiveGet: "这里填直播间授权码"
+  #附属插件授权码
+  Other:
+    - "blockgame:block-examplecode"
+
+#检测对象
+#平台(可选: 虎牙/B站/抖音/斗鱼/快手)
+# 0 - 虎牙
+# 1 - B站
+# 2 - 抖音
+# 3 - 斗鱼
+# 4 - 快手
+LiveGet:
+  #对象名称，可以随便设置，只要YAML允许
+  ROOM:
+    Platform: "2"
+    RoomId: "这里填直播间房间号"
+  ROOM1:
+    Platform: "2"
+    RoomId: "1"
+  ROOM2:
+    Platform: "2"
+    RoomId: "1"
+  ROOM3:
+    Platform: "2"
+    RoomId: "1"  
+
+#基础设置
+Set:
+  #默认连接服务器(ID序列)
+  ConnectServer: 1
+  #断开服务自动重连
+  AutoReConnect: true
+  #默认服务启用(true 启用/false 不启用)
+  #可用指令 -> lg start/off 开启/关闭
+  LiveGet: true
+  #默认实体名显示(true 显示/false 不显示)
+  EntityName: false
+
+#直播间信息处理
+Live:
+  Enter: |-
+    send &e%userName%:&a进入直播间！
+  #点赞触发
+  Like: |-
+    send &e%userName% 戳了戳大家
+    console dz dz
+  #关注触发
+  Follow: |-
+    send &e%userName% 关注了主播
+  #分享触发
+  Share: |-
+    send &e%userName% 分享了直播间
+  #弹幕处理
+  Chat:
+    #设置弹幕触发事件格式
+    #
+    #指令空格 -> 下一个参数
+    #
+    #旧格式
+    # 弹幕内容: |-
+    #   title: %msg%
+    #
+    #新格式
+    #不需要的节点可以不设置
+    #例如不指定 平台 则可将 Platform 行删除
+    #子节点:
+    #   Total -> 累计礼物数量
+    #   Count -> 一次性收到礼物数量
+    #   Bossbar -> 血条显示
+    #   Command -> 触发命令
+    #
+    # 弹幕内容:
+    #  Total: 3
+    #  Platform: 1
+    #  Command: |-
+    #    title: %msg%
+    #
+    #通配符 ? +
+    # ? -> 单个字符
+    # + -> 0或多个字符
+    # 因 yaml 不支持 *, 故替换为 +
+    +: |-
+      log &a[&b弹幕&a] &f%userName%&7>> &f%msg%
+    #累计收到3个111触发内容
+    111-3: |-
+      title &a瞬间治疗:%userName%
+      console effect give @a instant_health 1 10
+    
+  #礼物处理
+  Gift:
+    #设置弹幕触发事件格式
+    #
+    #指令空格 -> 下一个参数
+    #
+    #旧格式
+    # 礼物名称: |-
+    #   kill @e
+    #
+    #新格式
+    #不需要的节点可以不设置
+    #例如不指定 平台 则可将 Platform 行删除
+    #子节点:
+    #   Total -> 累计礼物数量
+    #   Count -> 一次性收到礼物数量
+    #   Bossbar -> 血条显示
+    #   Command -> 触发命令
+    #
+    # 礼物名称:
+    #  #一次性赠送礼物数量
+    #  Count: 3
+    #  #平台
+    #  Platform: 1
+    #  #命令
+    #  Command: |-
+    #    title: %msg%
+    #
+    #通配符 ? +
+    # ? -> 单个字符
+    # + -> 0或多个字符
+    # 因 yaml 不支持 *, 故替换为 +
+    +: |-
+      log &a[&b弹幕&a] &f%userName%&7>> &f%msg% &e * %time%
+    #猪
+    抖音: |-
+       console yx xm
+       console lw pig 1
+       console title @a title [{"text":"§e%userName% §4送来的§e%time%§4头天蓬元帅"}]
+    你最好看: |-
+       console yx xm
+       console lw pig 3
+       console title @a title [{"text":"§e%userName% §4送来的§e3§4头天蓬元帅"}]
+    加油鸭: |-
+       console yx mf
+       console lw pig 20
+       console title @a title [{"text":"§e%userName% §4送来的§e20§4头天蓬元帅"}]
+    黄桃罐头: |-
+       console yx hg
+       console lw pig 40
+       console title @a title [{"text":"§e%userName% §4送来的§e111§4头天蓬元帅"}]
+       
+       
+    #炸弹  
+    小心心: |-
+       console yx xm
+       console lw tnt 1
+       console title @a title [{"text":"§e%userName% §4送来的§e1§4个TNT"}]
+    棒棒糖: |-
+       console yx xm
+       console lw tnt 10
+       console title @a title [{"text":"§e%userName% §4送来的§e10§4个TNT"}]
+    粉丝灯牌: |-
+       console yx xm
+       console lw tnt 20
+       console title @a title [{"text":"§e%userName% §4送来的§e20§4个TNT"}]   
+    爱你哟: |-
+       console yx mf
+       console lw tnt 50
+       console title @a title [{"text":"§e%userName% §4送来的§e50§4个TNT"}]   
+    爱的纸鹤: |-
+       console yx mf
+       console lw tnt 100
+       console title @a title [{"text":"§e%userName% §4送来的§e100§4个TNT"}]
+    比心: |-
+       console yx hg
+       console lw tnt 1000
+       console title @a title [{"text":"§e%userName% §4送来的§e别玩咯！！！"}]   
+    热气球: |-
+       console yx hg
+       console dq -2
+       console lw tntzf1
+       console lw tnt 1000
+       console title @a title [{"text":"§e%userName% §4送来的§e大爆炸套餐§4通关次数-2"}]
+    保时捷: |-
+       console yx hg
+       console dq -5
+       console lw tntzf2
+       console lw tnt 2000
+       console title @a title [{"text":"§e%userName% §4送来的§e大爆炸ProMax套餐§4通关次数-5"}]
+       
+    #修补   
+    玫瑰: |-
+       console yx ht
+       console lw xb
+       console title @a title [{"text":"§e%userName% §4送来的§e修复一层"}]
+       console execute as @a at @a run tp ~ ~20 ~
+       
+    送你花花: |-
+       console yx ht
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console title @a title [{"text":"§e%userName% §4送来的§e修复六层"}]   
+       console execute as @a at @a run tp ~ ~20 ~
+    亲吻: |-
+       console yx ht
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console lw xb
+       console title @a title [{"text":"§e%userName% §4送来的§e修复九层"}]
+       console execute as @a at @a run tp ~ ~20 ~
+    繁花秘语: |-
+       console yx ht
+       console dq 1
+       console title @a title [{"text":"§e%userName% §4送来的§e完成+1！！！！！！！！！！"}] 
+       
+    #整蛊
+    啤酒: |-
+       console yx mf
+       console effect give @a minecraft:levitation 5 10
+       console title @a title [{"text":"§e%userName% §4送来的§e起飞"}]
+    抖音一号: |-
+       console yx ht
+       console title @a title [{"text":"§e%userName% §4送来的§e我要下播咯~~~"}]   
+    礼花筒: |-
+       console yx mf
+       console title @a title [{"text":"§e%userName% §4送来的§e闭嘴吧你！！！"}]      
+       
+       
+       
+ 
