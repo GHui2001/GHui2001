@@ -1,0 +1,17 @@
+name: JFB
+version: '${project.version}'
+main: com.jfb.Main
+api-version: '1.16'
+commands:
+  mb:
+    description: Some other command description.
+    usage: /<command> <value>
+  dq:
+    description: Another command description.
+    usage: /<command> <value>
+  yx:
+    description: Spawn a bee named "菜" below all players' feet and kill it after 1 second.
+    usage: /yx
+  dz:
+    description: Manage likes and execute commands.
+    usage: /dz <dzsl|dz>
