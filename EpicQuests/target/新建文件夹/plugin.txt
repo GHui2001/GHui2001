@@ -1,0 +1,8 @@
+name: EpicQuests
+version: 1.0
+main: com.example.plugins.epicquests.EpicQuests
+api-version: 1.16
+commands:
+  dfk:
+    description: 设置参数值
+    usage: /<command> <参数名> <数值>

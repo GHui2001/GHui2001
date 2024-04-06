@@ -1,0 +1,55 @@
+name: EpicQuests
+version: 1.0
+main: com.example.plugins.epicquests.EpicQuests
+api-version: 1.16
+commands:
+  dfk:
+    description: 设置参数值或开始循环替换区域内的方块为玻璃块
+    usage: /<command> <参数名> <数值> 或 /<command> 计算 或 /<command> 开始
+    aliases: [ epicquests, setparam ]
+
+
+  lw:
+    description: "Your plugin description"
+    usage: "/lw <subcommand>"
+    aliases: [ your-alias, lw-alias ]
+    xb:
+      description: "Your plugin description"
+      usage: "/lw xb"
+    tnt:
+      description: "Your plugin description"
+      usage: "/lw tnt"
+    tnt10:
+      description: "Your plugin description"
+      usage: "/lw tnt10"
+    tnt20:
+      description: "Your plugin description"
+      usage: "/lw tnt20"
+    tnt30:
+      description: "Your plugin description"
+      usage: "/lw tnt30"
+    tnt50:
+      description: "Your plugin description"
+      usage: "/lw tnt50"
+    tnt70:
+      description: "Your plugin description"
+      usage: "/lw tnt70"
+    tntzf1:
+      description: "Your plugin description"
+      usage: "/lw tntzf1"
+    tntzf2:
+      description: "Your plugin description"
+      usage: "/lw tntzf2"
+    qk:
+      description: "Your plugin description"
+      usage: "/lw qk"
+    xtslf:
+      description: "Your plugin description"
+      usage: "/lw xtslf"
+    dl:
+      description: "Your plugin description"
+      usage: "/lw dl"
+    permissions:
+      lw.use:
+        description: Allows access to /lw command.
+        default: true
